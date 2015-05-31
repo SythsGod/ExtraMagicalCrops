@@ -1,12 +1,15 @@
 package com.syths.extramagicalcrops;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 import com.syths.extramagicalcrops.block.BlockCompressed;
 import com.syths.extramagicalcrops.block.ModBlocks;
-import com.syths.extramagicalcrops.crops.BlockCropBedrockium;
 import com.syths.extramagicalcrops.crops.BlockCropMod;
 import com.syths.extramagicalcrops.init.ModTabs;
 // import com.syths.extramagicalcrops.item.ItemCollection;
@@ -34,18 +37,21 @@ public class ExtraMagicalCrops {
 	
 	public static int secondSeedDropChance = 2;
 	
-	public static String[] identifiers = new String[] { "Bedrockium"}; // Teh
-	public static String[] itemNames = new String[] {"Bedrockium"}; // Colt
-	// public static String[] oreDict = new String[] { "bedrockiumIngot", "electricalSteelIngot";
-	
-	public static Block[] crops; // Crops & Blocks
-	public static Item[] items; // Items
+	// Items and Blocks
+	public static Item tabItem, dustBedrockium; // Seperate Items
+	public static Block compressedBedrockiumBlock;
 	
 	public static ItemSeed[] itemSeeds;
 	public static ItemEssence[] itemEssences;
 	
-	public static Item tabItem, dustBedrockium, essenceElectricalSteel, seedElectricalSteel;
-	public static Block compressedBedrockiumBlock;
+	public static Block[] crops; // Stores all crops
+	
+	public static String[] identifiers = new String[] { "Bedrockium" , "ElectricalSteel" , "EnergeticAlloy", "VibrantAlloy", "RedstoneAlloy", "ConductiveIron", "PulsatingIron", "DarkSteel", "Soularium" }; // Teh
+	public static String[] itemNames = new String[] { "Bedrockium", "ElectricalSteel" , "EnergeticAlloy", "VibrantAlloy", "RedstoneAlloy", "ConductiveIron", "PulsatingIron", "DarkSteel", "Soularium" }; // Colt
+	public static int[] levels = new int[] {3, 1, 2, 3, 1, 1, 1, 3, 2}; // Needed essence level
+	public static Item[] returnItems;
+	public static ItemStack[] seedCraftingItems;
+	// public static String[] oreDict = new String[] { "bedrockiumIngot", "electricalSteelIngot";
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
@@ -61,41 +67,26 @@ public class ExtraMagicalCrops {
 	
 	// Create Seeds
 	for(int i = 0; i <= identifiers.length - 1; i++){
-		itemSeeds[i] = new ItemSeed(identifiers[i], "seed");
+		itemSeeds[i] = new ItemSeed(identifiers[i], "seed", i);
 		if(itemSeeds[i] != null) RegisterBot.registerItem(itemSeeds[i]);
 	}
 	
 	// Create Essences
 	for(int i = 0; i <= identifiers.length - 1; i++){
-		itemEssences[i] = new ItemEssence(identifiers[i]);
+		itemEssences[i] = new ItemEssence(identifiers[i], levels[i]);
 		if(itemEssences != null) RegisterBot.registerItem(itemEssences[i]);
 	}
 	
-	// Register Blocks
-	for(int i = 0; i <= identifiers.length - 1; i++){
+	// Register Crops (blocks)
+	for(int i = 0; i <= identifiers.length - 1; i++){		
 		crops[i] = new BlockCropMod(identifiers[i], itemSeeds[i], itemEssences[i]);
 		if(crops[i] != null) RegisterBot.registerBlock(crops[i]);
-	}	
+	}
 	
-	/*CropBedrockium = new BlockCropBedrockium(0);
-	RegisterBot.registerBlock(CropBedrockium);
-	
-	crops[0] = new BlockCropBedrockium(0);
-	
-	// Register Items
-	// ToDo -=- Put in a separate file or use a helper
-	essenceBedrockium = new ItemEssence("Bedrockium");
-	essenceElectricalSteel = new ItemEssence("Electrical_Steel");
-	seedBedrockium = new ItemSeed("Bedrockium", "seed");
-	seedElectricalSteel = new ItemSeed("Electrical_Steel", "seed");
 	dustBedrockium = new ItemDust("Bedrockium");
-	compressedBedrockiumDust = new BlockCompressed(Material.plants, "BedrockiumDust");
-	GameRegistry.registerItem(essenceBedrockium, "essenceBedrockium");
-	GameRegistry.registerItem(seedBedrockium, "seedBedrockium");
 	GameRegistry.registerItem(dustBedrockium, "dustBedrockium");
-	GameRegistry.registerItem(essenceElectricalSteel, "essenceElectricalSteel");
-	GameRegistry.registerItem(seedElectricalSteel, "seedElectricalSteel");
-	GameRegistry.registerBlock(compressedBedrockiumDust, "compressedBedrockiumDust");*/
+	compressedBedrockiumBlock = new BlockCompressed(Material.rock, "BedrockiumDust");
+	GameRegistry.registerBlock(compressedBedrockiumBlock, "mCompressedBedrockiumDust");
 	
 	tabItem = new ItemTab();
 	GameRegistry.registerItem(tabItem, "tabItem");;
@@ -106,9 +97,11 @@ public class ExtraMagicalCrops {
 		if(Loader.isModLoaded("ExtraUtilities")){
 			ModItems.fetchItems();
 			ModBlocks.fetchBlocks();
-			// Recipes.registerRecipes();
-		}else{
-			// Do something about this being empty  ?! !IMPORTANT
+			
+			returnItems = new Item[] { dustBedrockium, ModItems.ingotsEnderIO[0].getItem(), ModItems.ingotsEnderIO[1].getItem(), ModItems.ingotsEnderIO[2].getItem(), ModItems.ingotsEnderIO[3].getItem(), ModItems.ingotsEnderIO[4].getItem(), ModItems.ingotsEnderIO[5].getItem() };
+			seedCraftingItems = new ItemStack[] { new ItemStack(ModBlocks.blockBedrockium, 1), new ItemStack(ModBlocks.blocksEnderIO[0]), new ItemStack(ModBlocks.blocksEnderIO[1]), new ItemStack(ModBlocks.blocksEnderIO[2]), new ItemStack(ModBlocks.blocksEnderIO[3]), new ItemStack(ModBlocks.blocksEnderIO[4]), new ItemStack(ModBlocks.blocksEnderIO[5]) };
+			
+			Recipes.registerRecipes();
 		}
 	}
 }

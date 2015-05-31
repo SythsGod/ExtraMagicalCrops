@@ -27,9 +27,11 @@ public class ModItems {
 			ingotsEnderIO[i] = fetchStack("EnderIO", "itemAlloy", i);
 		}
 		
-		for(int i = 0; i < 3; i++){
+		// Get all the different magical crops essences
+		for(int i = 0; i < 4; i++){
 			origEssences[i] = fetchStack("magicalcrops", "magicalcrops_MagicEssence", i);
 		}
+		
 		// magicalcrops_MagicEssence:4
 		// magicalcrops_InfusionStone:4
 		// EnderIO:itemAlloy

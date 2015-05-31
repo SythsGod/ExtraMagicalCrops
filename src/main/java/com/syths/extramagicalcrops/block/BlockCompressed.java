@@ -12,9 +12,7 @@ public class BlockCompressed extends Block{
 		setCreativeTab(ModTabs.tabExtraMagicalCrops);
 		setHardness(0.5F);
 		setStepSound(Block.soundTypeStone);
-		setBlockName("compressed" + name);
+		setBlockName("mCompressed" + name);
 		setBlockTextureName("extramagicalcrops:mCompressed" + name);
-		setLightLevel(2.0F);
-		setLightOpacity(5);
 	}
 }
