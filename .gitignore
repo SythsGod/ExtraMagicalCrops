@@ -1,0 +1,30 @@
+# Directories
+/.gradle/
+/build/
+/eclipse
+/run/
+/out/
+/asm/
+/bin/
+/build/
+/config/
+crash-reports/
+/.idea/
+/.metadata/
+/.settings/
+/libs/
+/saves/
+/resourcepacks/
+/logs/
+/mods/
+/screenshots/
+
+# File extensions
+*.psd
+*.iml
+*.ipr
+*.iws
+*.classpath
+*.project
+
+#Specific files

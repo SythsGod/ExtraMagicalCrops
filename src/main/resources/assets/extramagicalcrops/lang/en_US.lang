@@ -1,0 +1,18 @@
+#Item localizations
+item.tabIcon.name=DON'T MESS WITH THIS
+item.dustBedrockium.name=Bedrockium Dust
+
+#Blocks localizations
+tile.compressedBedrockiumDust.name=Compressed Bedrockium Dust
+
+#Crops localizations
+tile.blockMagicalCrops.0.name=Bedrockium Crop
+
+#Seeds localizations
+item.seedBedrockium.name=Bedrockium Seed
+
+#Essence localizations
+item.essenceBedrockium.name=Bedrockium Essence
+
+# Creative Tab localizations
+itemGroup.tabExtraMagicalCrops=Extra Magical Crops
