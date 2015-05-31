@@ -57,7 +57,7 @@ public class ItemCollection extends Item {
 	public void registerIcons(IIconRegister iconReg){
 		if(itemType.equals("seed") || itemType.equals("essence"))
 			for (int i = 0; i < exclusiveTextures.length; i++)
-				exclusiveTextures[i] = iconReg.registerIcon("extramagicalcrops:" + itemType + ExtraMagicalCrops.identifiers[i]);
+				exclusiveTextures[i] = iconReg.registerIcon("extramagicalcrops:" + itemType + this.getUnlocalizedName());
 		else
 			exclusiveTextures[0] = iconReg.registerIcon("extramagicalcrops:essencePulsating");
 	}

@@ -1,12 +1,10 @@
 package com.syths.extramagicalcrops;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import javax.swing.JOptionPane;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 
 import com.syths.extramagicalcrops.block.BlockCompressed;
 import com.syths.extramagicalcrops.block.ModBlocks;
@@ -24,7 +22,6 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = ExtraMagicalCrops.MOD_ID, name = ExtraMagicalCrops.MOD_NAME, version = ExtraMagicalCrops.VERSION, dependencies = ExtraMagicalCrops.DEPENDENCIES)
 
@@ -75,11 +72,21 @@ public class ExtraMagicalCrops {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
 		ModTabs.load();
+	}
+	
+	@EventHandler
+	public void init(FMLInitializationEvent event){
 		
+	}
+	
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent event){
 		// Fetch needed items/blocks from other mods
 		if(Loader.isModLoaded("ExtraUtilities") && Loader.isModLoaded("EnderIO")){
 			ModItems.fetchItems();
 			ModBlocks.fetchBlocks();
+		}else{
+			JOptionPane.showMessageDialog(null, "Mods weren't loaded.", "InforBox: debug", JOptionPane.INFORMATION_MESSAGE);			
 		}
 		
 		// Single Items:
@@ -150,15 +157,7 @@ public class ExtraMagicalCrops {
 		if(cropConductiveIron != null) RegisterBot.registerBlock(cropConductiveIron);
 		if(cropDarkSteel != null) RegisterBot.registerBlock(cropDarkSteel);
 		if(cropSoularium != null) RegisterBot.registerBlock(cropSoularium);
-	}
-	
-	@EventHandler
-	public void init(FMLInitializationEvent event){	
-		Recipes.registerRecipes();
-	}
-	
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event){
 		
-	}
+		Recipes.registerRecipes();
+	}	
 }
