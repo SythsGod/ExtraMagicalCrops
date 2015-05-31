@@ -7,15 +7,25 @@ import net.minecraft.item.ItemStack;
 public class ModBlocks {
 	
 	public static Block blockBedrockium;
-	public static Block[] blocksEnderIO;
+	public static Block blockElectricalSteel;
+	public static Block blockEnergeticAlloy;
+	public static Block blockVibrantAlloy;
+	public static Block blockRedstoneAlloy;
+	public static Block blockConductiveIron;
+	public static Block blockPulsatingIron;
+	public static Block blockDarkSteel;
+	public static Block blockSoularium;
 	
-	public static void fetchBlocks(){
-		blocksEnderIO = new Block[8];
-		
+	public static void fetchBlocks(){		
 		blockBedrockium = fetchBlock("ExtraUtilities", "block_bedrockium");
-		for(int i = 0; i < 6; i++){
-			blocksEnderIO[i] = fetchBlock("EnderIO", "blockIngotStorage", i);
-		}
+		blockElectricalSteel = fetchBlock("EnderIO", "blockIngotStorage", 0);
+		blockEnergeticAlloy = fetchBlock("EnderIO", "blockIngotStorage", 1);
+		blockVibrantAlloy = fetchBlock("EnderIO", "blockIngotStorage", 2);
+		blockRedstoneAlloy = fetchBlock("EnderIO", "blockIngotStorage", 3);
+		blockConductiveIron = fetchBlock("EnderIO", "blockIngotStorage", 4);
+		blockPulsatingIron = fetchBlock("EnderIO", "blockIngotStorage", 5);
+		blockDarkSteel = fetchBlock("EnderIO", "blockIngotStorage", 6);
+		blockSoularium = fetchBlock("EnderIO", "blockIngotStorage", 7);
 	}
 	
 	public static Block fetchBlock(String modId, String block){		

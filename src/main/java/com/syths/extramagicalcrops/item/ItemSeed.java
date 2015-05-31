@@ -1,9 +1,5 @@
 package com.syths.extramagicalcrops.item;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -11,17 +7,16 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import com.syths.extramagicalcrops.ExtraMagicalCrops;
 import com.syths.extramagicalcrops.init.ModTabs;
 
 public class ItemSeed extends Item{
 	
 	String itemType;
-	int c;
+	Block crop;
 	
-	public ItemSeed(String name, String type, int c){
-		itemType = type;
-		this.c = c;
+	public ItemSeed(String name, Block crop){
+		itemType = "seed";
+		this.crop = crop;
 		setMaxStackSize(64);
 		setCreativeTab(ModTabs.tabExtraMagicalCrops);
 		setUnlocalizedName("mSeed" + name);
@@ -40,7 +35,7 @@ public class ItemSeed extends Item{
 			}
 			
 			int meta = par1Stack.getItemDamage();
-			par3World.setBlock(x, y + 1, z, ExtraMagicalCrops.crops[c], (meta % 4), 2);
+			par3World.setBlock(x, y + 1, z, crop, (meta % 4), 2);
 			par1Stack.stackSize--;
 			return true;
 		}

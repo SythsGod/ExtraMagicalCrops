@@ -11,30 +11,36 @@ import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModItems {
-	public static ItemStack ingotBedrockium, essenceDust, essenceWeak, essenceRegular, essenceStrong, essenceExtreme;
-	public static ItemStack[] origEssences;
-	public static ItemStack[] ingotsEnderIO;
+	public static ItemStack ingotBedrockium;
+	public static ItemStack essenceDust;
+	public static ItemStack essenceWeak;
+	public static ItemStack essenceRegular;
+	public static ItemStack essenceStrong;
+	public static ItemStack essenceExtreme;
+	public static ItemStack ingotElectricalSteel;
+	public static ItemStack ingotEnergeticAlloy;
+	public static ItemStack ingotVibrantAlloy;
+	public static ItemStack ingotRedstoneAlloy;
+	public static ItemStack ingotConductiveIron;
+	public static ItemStack ingotPulsatingIron;
+	public static ItemStack ingotDarkSteel;
+	public static ItemStack ingotSoularium;
 	
-	public static void fetchItems(){
-		origEssences = new ItemStack[4];
-		ingotsEnderIO = new ItemStack[8];
-		
-		
-		ingotBedrockium = fetchStack("ExtraUtilities", "bedrockiumIngot");
-		
-		// Get all needed "Ender IO" ingots
-		for(int i = 0; i < 6; i++){
-			ingotsEnderIO[i] = fetchStack("EnderIO", "itemAlloy", i);
-		}
-		
-		// Get all the different magical crops essences
-		for(int i = 0; i < 4; i++){
-			origEssences[i] = fetchStack("magicalcrops", "magicalcrops_MagicEssence", i);
-		}
-		
-		// magicalcrops_MagicEssence:4
-		// magicalcrops_InfusionStone:4
-		// EnderIO:itemAlloy
+	public static void fetchItems(){		
+		ingotBedrockium = fetchStack("ExtraUtilities", "bedrockiumIngot");		
+		essenceDust = fetchStack("magicalcrops", "magicalcrops_MagicEssence", 0);
+		essenceWeak = fetchStack("magicalcrops", "magicalcrops_MagicEssence", 1);
+		essenceRegular = fetchStack("magicalcrops", "magicalcrops_MagicEssence", 2);
+		essenceStrong = fetchStack("magicalcrops", "magicalcrops_MagicEssence", 3);
+		essenceExtreme = fetchStack("magicalcrops", "magicalcrops_MagicEssence", 4);
+		ingotElectricalSteel = fetchStack("EnderIO", "blockStorageIngot", 0);
+		ingotEnergeticAlloy = fetchStack("EnderIO", "blockStorageIngot", 1);
+		ingotVibrantAlloy = fetchStack("EnderIO", "blockStorageIngot", 2);
+		ingotRedstoneAlloy = fetchStack("EnderIO", "blockStorageIngot", 3);
+		ingotConductiveIron = fetchStack("EnderIO", "blockStorageIngot", 4);
+		ingotPulsatingIron = fetchStack("EnderIO", "blockStorageIngot", 5);
+		ingotDarkSteel = fetchStack("EnderIO", "blockStorageIngot", 6);
+		ingotSoularium = fetchStack("EnderIO", " blockStorageIngot", 7);
 	}
 	
 	public static ItemStack fetchStack(String modId, String item){

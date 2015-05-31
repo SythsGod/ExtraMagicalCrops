@@ -7,17 +7,10 @@ import net.minecraft.item.Item;
 
 public class ItemEssence extends Item{
 	
-	int level;
-	
-	public ItemEssence(String name, int level){
-		this.level = level;
+	public ItemEssence(String name){
 		setMaxStackSize(64);
 		setCreativeTab(ModTabs.tabExtraMagicalCrops);
 		setUnlocalizedName("mEssence" + name);
 		setTextureName("extramagicalcrops:mEssence" + name);
-	}
-	
-	public int getLevel(){
-		return level;
 	}
 }

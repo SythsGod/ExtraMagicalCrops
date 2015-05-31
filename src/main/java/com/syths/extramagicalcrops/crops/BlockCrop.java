@@ -65,7 +65,7 @@ public class BlockCrop extends BlockBush implements IGrowable{
 		super.dropBlockAsItemWithChance(par1World, x, y, z, par5, par6, par7);
 		if (!par1World.isRemote){
 			if ((par5 >= 7) && (par1World.rand.nextInt(10) == 0)){
-				dropBlockAsItem(par1World, x, y, z, new ItemStack(ExtraMagicalCrops.itemSeeds[0], 1));
+				dropBlockAsItem(par1World, x, y, z, new ItemStack(getSeed(), 1));
 			}			
 		}
 	}
