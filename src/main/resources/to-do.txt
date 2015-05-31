@@ -1,7 +1,0 @@
-Extra Crop Ideas:
-    Add crops for Botania metals (and items?) -- DON'T FORGET CONFIG
-    Add Blood Magic Crops:
-        Give LP upon right click and return to base stage
-        
-Add a config
-Move the "registry" to a seperate file using the registryBot
