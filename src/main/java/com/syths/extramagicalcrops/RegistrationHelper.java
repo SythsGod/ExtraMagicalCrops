@@ -10,7 +10,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
-public class RegisterBot {
+public class RegistrationHelper {
 	public static void registerBlock(Block block){
 		GameRegistry.registerBlock(block, "extramagicalcrops_" + block.getUnlocalizedName());
 	}

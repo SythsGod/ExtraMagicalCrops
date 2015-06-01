@@ -91,11 +91,11 @@ public class ExtraMagicalCrops {
 		
 		// Single Items:
 		dustBedrockium = new ItemDust("Bedrockium");
-		if(dustBedrockium != null) RegisterBot.registerItem(dustBedrockium);
+		if(dustBedrockium != null) RegistrationHelper.registerItem(dustBedrockium);
 		compressedBedrockiumDustBlock = new BlockCompressed(Material.rock, "BedrockiumDust");
-		if(compressedBedrockiumDustBlock != null) RegisterBot.registerBlock(compressedBedrockiumDustBlock);
+		if(compressedBedrockiumDustBlock != null) RegistrationHelper.registerBlock(compressedBedrockiumDustBlock);
 		tabItem = new ItemTab();
-		if(tabItem != null) RegisterBot.registerItem(tabItem);
+		if(tabItem != null) RegistrationHelper.registerItem(tabItem);
 		
 		// Filling Seeds:
 		seedBedrockium = new ItemSeed("Bedrockium", cropBedrockium);
@@ -108,14 +108,14 @@ public class ExtraMagicalCrops {
 		seedSoularium = new ItemSeed("Soularium", cropSoularium);
 		
 		// Registering Seeds:
-		if(seedBedrockium != null) RegisterBot.registerItem(seedBedrockium);
-		if(seedElectricalSteel != null) RegisterBot.registerItem(seedElectricalSteel);
-		if(seedEnergeticAlloy != null) RegisterBot.registerItem(seedEnergeticAlloy);
-		if(seedVibrantAlloy != null) RegisterBot.registerItem(seedVibrantAlloy);
-		if(seedRedstoneAlloy != null) RegisterBot.registerItem(seedRedstoneAlloy);
-		if(seedConductiveIron != null) RegisterBot.registerItem(seedConductiveIron);
-		if(seedDarkSteel != null) RegisterBot.registerItem(seedDarkSteel);
-		if(seedSoularium != null) RegisterBot.registerItem(seedSoularium);
+		if(seedBedrockium != null) RegistrationHelper.registerItem(seedBedrockium);
+		if(seedElectricalSteel != null) RegistrationHelper.registerItem(seedElectricalSteel);
+		if(seedEnergeticAlloy != null) RegistrationHelper.registerItem(seedEnergeticAlloy);
+		if(seedVibrantAlloy != null) RegistrationHelper.registerItem(seedVibrantAlloy);
+		if(seedRedstoneAlloy != null) RegistrationHelper.registerItem(seedRedstoneAlloy);
+		if(seedConductiveIron != null) RegistrationHelper.registerItem(seedConductiveIron);
+		if(seedDarkSteel != null) RegistrationHelper.registerItem(seedDarkSteel);
+		if(seedSoularium != null) RegistrationHelper.registerItem(seedSoularium);
 		
 		// Filling Essences:
 		essenceBedrockium = new ItemEssence("Bedrockium");
@@ -129,14 +129,14 @@ public class ExtraMagicalCrops {
 		essenceSoularium = new ItemEssence("Soularium");
 		
 		// Registering Essences:
-		if(essenceBedrockium != null) RegisterBot.registerItem(essenceBedrockium);
-		if(essenceElectricalSteel != null) RegisterBot.registerItem(essenceElectricalSteel);
-		if(essenceEnergeticAlloy != null) RegisterBot.registerItem(essenceEnergeticAlloy);
-		if(essenceVibrantAlloy != null) RegisterBot.registerItem(essenceVibrantAlloy);
-		if(essenceRedstoneAlloy != null) RegisterBot.registerItem(essenceRedstoneAlloy);
-		if(essenceConductiveIron != null) RegisterBot.registerItem(essenceConductiveIron);
-		if(essenceDarkSteel != null) RegisterBot.registerItem(essenceDarkSteel);
-		if(essenceSoularium != null) RegisterBot.registerItem(essenceSoularium);
+		if(essenceBedrockium != null) RegistrationHelper.registerItem(essenceBedrockium);
+		if(essenceElectricalSteel != null) RegistrationHelper.registerItem(essenceElectricalSteel);
+		if(essenceEnergeticAlloy != null) RegistrationHelper.registerItem(essenceEnergeticAlloy);
+		if(essenceVibrantAlloy != null) RegistrationHelper.registerItem(essenceVibrantAlloy);
+		if(essenceRedstoneAlloy != null) RegistrationHelper.registerItem(essenceRedstoneAlloy);
+		if(essenceConductiveIron != null) RegistrationHelper.registerItem(essenceConductiveIron);
+		if(essenceDarkSteel != null) RegistrationHelper.registerItem(essenceDarkSteel);
+		if(essenceSoularium != null) RegistrationHelper.registerItem(essenceSoularium);
 		
 		// Filling Crops:
 		cropBedrockium = new BlockCropMod("Bedrockium", seedBedrockium, essenceBedrockium);
@@ -149,14 +149,14 @@ public class ExtraMagicalCrops {
 		cropSoularium = new BlockCropMod("Soularium", seedSoularium, essenceSoularium);
 		
 		// Registering Crops:
-		if(cropBedrockium != null) RegisterBot.registerBlock(cropBedrockium);
-		if(cropElectricalSteel != null) RegisterBot.registerBlock(cropElectricalSteel);
-		if(cropEnergeticAlloy != null) RegisterBot.registerBlock(cropEnergeticAlloy);
-		if(cropVibrantAlloy != null) RegisterBot.registerBlock(cropVibrantAlloy);
-		if(cropRedstoneAlloy != null) RegisterBot.registerBlock(cropRedstoneAlloy);
-		if(cropConductiveIron != null) RegisterBot.registerBlock(cropConductiveIron);
-		if(cropDarkSteel != null) RegisterBot.registerBlock(cropDarkSteel);
-		if(cropSoularium != null) RegisterBot.registerBlock(cropSoularium);
+		if(cropBedrockium != null) RegistrationHelper.registerBlock(cropBedrockium);
+		if(cropElectricalSteel != null) RegistrationHelper.registerBlock(cropElectricalSteel);
+		if(cropEnergeticAlloy != null) RegistrationHelper.registerBlock(cropEnergeticAlloy);
+		if(cropVibrantAlloy != null) RegistrationHelper.registerBlock(cropVibrantAlloy);
+		if(cropRedstoneAlloy != null) RegistrationHelper.registerBlock(cropRedstoneAlloy);
+		if(cropConductiveIron != null) RegistrationHelper.registerBlock(cropConductiveIron);
+		if(cropDarkSteel != null) RegistrationHelper.registerBlock(cropDarkSteel);
+		if(cropSoularium != null) RegistrationHelper.registerBlock(cropSoularium);
 		
 		Recipes.registerRecipes();
 	}	
